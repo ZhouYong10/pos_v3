@@ -12,6 +12,7 @@ Cart.prototype = {
             for(var i in barCode){
                 var commodity = _.where(get_commodities(),{barCode:i});
                 commodity.num = barCode[i];
+                console.log(commodity);
                 return commodity;
             }
         });
