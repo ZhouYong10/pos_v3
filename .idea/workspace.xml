@@ -28,13 +28,13 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/datum/Commodities.json" />
-        <option value="$PROJECT_DIR$/models/Cart.js" />
-        <option value="$PROJECT_DIR$/models/Commodity.js" />
-        <option value="$PROJECT_DIR$/models/PrivilegeRule.js" />
-        <option value="$PROJECT_DIR$/models/PrivilegeStrategy.js" />
-        <option value="$PROJECT_DIR$/test/models/CartSpec.js" />
-        <option value="$PROJECT_DIR$/test/mocha.opts" />
+        <option value="$USER_HOME$/myApps/Pos-v3/datum/Commodities.json" />
+        <option value="$USER_HOME$/myApps/Pos-v3/models/Cart.js" />
+        <option value="$USER_HOME$/myApps/Pos-v3/models/Commodity.js" />
+        <option value="$USER_HOME$/myApps/Pos-v3/models/PrivilegeRule.js" />
+        <option value="$USER_HOME$/myApps/Pos-v3/models/PrivilegeStrategy.js" />
+        <option value="$USER_HOME$/myApps/Pos-v3/test/models/CartSpec.js" />
+        <option value="$USER_HOME$/myApps/Pos-v3/test/mocha.opts" />
       </list>
     </option>
   </component>
@@ -77,42 +77,8 @@
               <option name="myItemId" value="pos_v3" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="pos_v3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pos_v3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pos_v3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pos_v3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pos_v3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pos_v3" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spec" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -123,17 +89,17 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/myApps/Pos-v3" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/../pos_v3" />
-      <recent name="$PROJECT_DIR$/test" />
+      <recent name="$USER_HOME$/myApps/pos_v3" />
+      <recent name="$USER_HOME$/myApps/Pos-v3/test" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/test/models" />
-      <recent name="$PROJECT_DIR$/test" />
+      <recent name="$USER_HOME$/myApps/Pos-v3/test/models" />
+      <recent name="$USER_HOME$/myApps/Pos-v3/test" />
     </key>
   </component>
   <component name="RunManager">
