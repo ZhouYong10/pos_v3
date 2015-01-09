@@ -15,7 +15,13 @@ PrivilegeRuleFactory.prototype = {
     all_on_sale: function(discountRate){
         return PrivilegeRule('allOnSale','discount',discountRate);
     },
-    item_reduce: function(reduceRule){
-        return new PrivilegeRule('item_reduce','reduce',reduceRule);
+    item_on_reduce: function(reduceRule){
+        return new PrivilegeRule('itemOnReduce','reduce',reduceRule);
+    },
+    brand_on_reduce: function(reduceRule){
+        return new PrivilegeRule('brandOnReduce','reduce',reduceRule);
+    },
+    all_on_reduce: function(reduceRule){
+        return new PrivilegeRule('allOnReduce','reduce',reduceRule);
     }
 };
