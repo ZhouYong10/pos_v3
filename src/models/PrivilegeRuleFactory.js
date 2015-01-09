@@ -14,5 +14,8 @@ PrivilegeRuleFactory.prototype = {
     },
     all_on_sale: function(discountRate){
         return PrivilegeRule('allOnSale','discount',discountRate);
+    },
+    item_reduce: function(reduceRule){
+        return new PrivilegeRule('item_reduce','reduce',reduceRule);
     }
 };
