@@ -6,10 +6,13 @@ function PrivilegeRuleFactory(){
 }
 
 PrivilegeRuleFactory.prototype = {
-    item_on_sale:function(rule){
-        privilegeRule =  new PrivilegeRule('itemOnSale','discount',rule);
-        privilegeRule.settle_accounts = function(price){
-            return price * this.rule;
-        }
+    item_on_sale: function(discountRate){
+        return  new PrivilegeRule('itemOnSale','discount',discountRate);
+    },
+    brand_on_sale: function(discountRate){
+        return PrivilegeRule('brandOnSale','discount',discountRate);
+    },
+    all_on_sale: function(discountRate){
+        return PrivilegeRule('allOnSale','discount',discountRate);
     }
 };
