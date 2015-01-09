@@ -25,16 +25,17 @@ PrivilegeRule.prototype = {
         }
     },
     _relevance: function(commodityInfo,key){
+        var self = this;
         var commodities = _.map(get_commodities(),function(commodity){
             if(!commodityInfo){
-                commodity.privilegeRules.push(this);
+                commodity.privilegeRules.push(self);
             }
             if(commodityInfo && commodity[key] == commodityInfo){
-                commodity.privilegeRules.push(this);
+                commodity.privilegeRules.push(self);
             }
             return commodity
         });
-        return commodities;
+        set_commodities(commodities);
     }
 
 };

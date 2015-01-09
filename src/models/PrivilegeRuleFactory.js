@@ -10,10 +10,10 @@ PrivilegeRuleFactory.prototype = {
         return  new PrivilegeRule('itemOnSale','item','discount',discountRate);
     },
     brand_on_sale: function(discountRate){
-        return PrivilegeRule('brandOnSale','brand','discount',discountRate);
+        return new PrivilegeRule('brandOnSale','brand','discount',discountRate);
     },
     all_on_sale: function(discountRate){
-        return PrivilegeRule('allOnSale','all','discount',discountRate);
+        return new PrivilegeRule('allOnSale','all','discount',discountRate);
     },
     item_on_reduce: function(reduceRule){
         return new PrivilegeRule('itemOnReduce','item','reduce',reduceRule);
