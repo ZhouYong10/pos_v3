@@ -3,7 +3,7 @@
  */
 describe('PrivilegeRule',function(){
 
-    describe('should be relevance commodity correct.',function(){
+    describe('method relevance should be relevance commodity correct.',function(){
         var privilegeRuleFactory;
         beforeEach(function(){
             set_commodities();
