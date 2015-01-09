@@ -5,3 +5,11 @@ function PrivilegeRuleFactory(){
 
 }
 
+PrivilegeRuleFactory.prototype = {
+    item_on_sale:function(rule){
+        privilegeRule =  new PrivilegeRule('itemOnSale','discount',rule);
+        privilegeRule.settle_accounts = function(price){
+            return price * this.rule;
+        }
+    }
+};
