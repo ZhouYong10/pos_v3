@@ -1,9 +1,9 @@
 /**
  * Created by zhouyong on 15-1-8.
  */
-var commodities = [];
+var _global_commodities = [];
 
-function set_commodities(){
+function set_commodities(commodities){
     var _commodities = [
         new Commodity('ITEM000000','饮料', '可口可乐', '可口可乐350ml', '瓶', 3.00),
         new Commodity('ITEM000010','饮料', '可口可乐', '可口可乐550ml', '瓶', 4.00),
@@ -16,11 +16,11 @@ function set_commodities(){
         new Commodity('ITEM000008','饮料', '康师傅', '康师傅冰红茶', '瓶', 3.00),
         new Commodity('ITEM000006','体育用品', '胜利', '羽毛球', '个', 1.00)
     ];
-    commodities = _commodities;
+    _global_commodities = commodities?commodities:_commodities;
 }
 
 function get_commodities(){
-    return commodities;
+    return _global_commodities;
 }
 
 function cart_datum(){
