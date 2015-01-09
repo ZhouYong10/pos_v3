@@ -1,8 +1,10 @@
 /**
  * Created by zhouyong on 15-1-8.
  */
-function get_commodities(){
-    return [
+var commodities = [];
+
+function set_commodities(){
+    var _commodities = [
         new Commodity('ITEM000000','饮料', '可口可乐', '可口可乐350ml', '瓶', 3.00),
         new Commodity('ITEM000010','饮料', '可口可乐', '可口可乐550ml', '瓶', 4.00),
         new Commodity('ITEM000001','饮料', '百事', '雪碧', '瓶', 3.00),
@@ -14,6 +16,11 @@ function get_commodities(){
         new Commodity('ITEM000008','饮料', '康师傅', '康师傅冰红茶', '瓶', 3.00),
         new Commodity('ITEM000006','体育用品', '胜利', '羽毛球', '个', 1.00)
     ];
+    commodities = _commodities;
+}
+
+function get_commodities(){
+    return commodities;
 }
 
 function cart_datum(){

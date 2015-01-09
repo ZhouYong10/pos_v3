@@ -2,6 +2,9 @@
  * Created by zhouyong on 15-1-8.
  */
 describe('Cart',function(){
+    beforeEach(function(){
+        set_commodities();
+    });
     it('parse_bar_codes_to_commodities',function(){
         var cart = new Cart(cart_datum());
         var commodities = cart.parse_bar_codes_to_commodities();
