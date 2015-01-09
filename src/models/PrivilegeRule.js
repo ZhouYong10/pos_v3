@@ -12,7 +12,7 @@ function PrivilegeRule(ruleName,type,category,rule,effective){
 PrivilegeRule.prototype = {
     relevance: function(commodityInfo){
         var self = this;
-        switch(this.type){
+        switch(self.type){
             case 'item':
                 self._relevance(commodityInfo,"commodityName");
                 break;
@@ -36,6 +36,17 @@ PrivilegeRule.prototype = {
             return commodity
         });
         set_commodities(commodities);
+    },
+    settle_accounts: function(subtotal){
+        var self = this;
+        switch(self.category){
+            case 'discount':
+                return subtotal * self.rule;
+                break;
+            case 'reduce':
+                var rule = self.rule.split('-');
+                return (subtotal/rule[0])*rule[1];
+                break;
+        }
     }
-
 };
