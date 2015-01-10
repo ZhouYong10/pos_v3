@@ -7,8 +7,8 @@ function PrivilegeRuleFactory(){
 
 var _except = function(obj){
     obj.except = function(commodities,brands){
-        this.exceptCommodities = commodities;
-        this.exceptBrands = brands;
+        this.exceptCommodities = commodities?commodities:[];
+        this.exceptBrands = brands?brands:[];
     };
 };
 

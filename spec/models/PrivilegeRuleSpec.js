@@ -79,4 +79,26 @@ describe('PrivilegeRule',function(){
         });
     });
 
+    describe('method except',function(){
+
+        var privilegeRuleFactory;
+        beforeEach(function(){
+            privilegeRuleFactory = new PrivilegeRuleFactory();
+        });
+
+        it('discount except',function(){
+            var allOnSale = privilegeRuleFactory.all_on_sale(9.5);
+            allOnSale.except(['可口可乐350ml','雪碧'],['可口可乐','云山']);
+            expect(allOnSale.exceptCommodities).toEqual(['可口可乐350ml','雪碧']);
+            expect(allOnSale.exceptBrands).toEqual(['可口可乐','云山']);
+        });
+
+        it('reduce except',function(){
+            var allOnReduce = privilegeRuleFactory.all_on_reduce('100-5');
+            allOnReduce.except(['可口可乐350ml','雪碧'],['可口可乐','云山']);
+            expect(allOnReduce.exceptCommodities).toEqual(['可口可乐350ml','雪碧']);
+            expect(allOnReduce.exceptBrands).toEqual(['可口可乐','云山']);
+        });
+    });
+
 });
