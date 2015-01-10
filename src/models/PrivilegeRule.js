@@ -41,11 +41,11 @@ PrivilegeRule.prototype = {
         var self = this;
         switch(self.category){
             case 'discount':
-                return subtotal * self.rule;
+                return subtotal * (1-self.rule/10);
                 break;
             case 'reduce':
                 var rule = self.rule.split('-');
-                return (subtotal/rule[0])*rule[1];
+                return (Math.floor(subtotal/rule[0]))*rule[1];
                 break;
         }
     }

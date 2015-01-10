@@ -61,4 +61,22 @@ describe('PrivilegeRule',function(){
         });
     });
 
+    describe('method settle_accounts',function(){
+
+        var privilegeRuleFactory;
+        beforeEach(function(){
+            privilegeRuleFactory = new PrivilegeRuleFactory();
+        });
+
+        it('Calculate the price based on discount rules',function(){
+            var discount = privilegeRuleFactory.item_on_sale(9.5);
+            expect(discount.settle_accounts(120)).toEqual(120*(1-0.95));
+        });
+
+        it('Calculate the price based on the full reduce rule',function(){
+            var reduce = privilegeRuleFactory.item_on_reduce('100-5');
+            expect(reduce.settle_accounts(450)).toEqual(20);
+        });
+    });
+
 });
