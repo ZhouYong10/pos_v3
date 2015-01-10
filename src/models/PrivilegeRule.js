@@ -1,11 +1,13 @@
 /**
  * Created by zhouyong on 15-1-8.
  */
-function PrivilegeRule(ruleName,type,category,rule,baseOn){
+function PrivilegeRule(ruleName,type,category,rule,conflictRules,remove,baseOn){
     this.ruleName = ruleName;
     this.type = type;
     this.category = category;
     this.rule = rule;
+    this.conflictRules = conflictRules?conflictRules:[];
+    this.remove = remove;
     this.baseOn = baseOn;
 }
 
