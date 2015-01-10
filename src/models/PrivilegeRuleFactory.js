@@ -5,6 +5,13 @@ function PrivilegeRuleFactory(){
 
 }
 
+var _except = function(obj){
+    obj.except = function(commodities,brands){
+        this.exceptCommodities = commodities;
+        this.exceptBrands = brands;
+    };
+};
+
 PrivilegeRuleFactory.prototype = {
     item_on_sale: function(discountRate){
         return  new PrivilegeRule('itemOnSale','item','discount',discountRate);
@@ -13,7 +20,9 @@ PrivilegeRuleFactory.prototype = {
         return new PrivilegeRule('brandOnSale','brand','discount',discountRate);
     },
     all_on_sale: function(discountRate){
-        return new PrivilegeRule('allOnSale','all','discount',discountRate);
+        var allOnSale = new PrivilegeRule('allOnSale','all','discount',discountRate);
+        _except(allOnSale);
+        return allOnSale;
     },
     item_on_reduce: function(reduceRule){
         return new PrivilegeRule('itemOnReduce','item','reduce',reduceRule);
@@ -22,6 +31,8 @@ PrivilegeRuleFactory.prototype = {
         return new PrivilegeRule('brandOnReduce','brand','reduce',reduceRule);
     },
     all_on_reduce: function(reduceRule){
-        return new PrivilegeRule('allOnReduce','all','reduce',reduceRule);
+        var allOnReduce = new PrivilegeRule('allOnReduce','all','reduce',reduceRule);
+        _except(allOnReduce);
+        return allOnReduce;
     }
 };
