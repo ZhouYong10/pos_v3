@@ -53,7 +53,24 @@ PrivilegeRule.prototype = {
         });
     },
     _insert_by_baseOn:function(privilegeRules){
-        
+        var self = this;
+        if(self.baseOn){
+            var baseOnRule = _.where(privilegeRules,{ruleName:self.baseOn});
+            var baseByRule = _.where(privilegeRules,{baseOn:self.ruleName});
+            if(baseOnRule){
+                var baseOnRuleIndex = _.indexOf(privilegeRules,baseOnRule);
+                _insert_by_index(privilegeRules,baseOnRuleIndex);
+            }
+            if(!baseOnRule && baseByRule){
+                var baseByRuleIndex = _.indexOf(privilegeRules,baseByRule);
+                _insert_by_index(privilegeRules,baseByRuleIndex-1);
+            }
+            if(!baseOnRule && !baseByRule){
+                privilegeRules.push(self);
+            }
+        }else{
+            privilegeRules.unshift(self);
+        }
     },
     settle_accounts: function(subtotal){
         var self = this;
