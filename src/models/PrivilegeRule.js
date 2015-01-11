@@ -1,13 +1,12 @@
 /**
  * Created by zhouyong on 15-1-8.
  */
-function PrivilegeRule(ruleName,type,category,rule,conflictRules,remove,baseOn){
+function PrivilegeRule(ruleName,type,category,rule,conflicts,baseOn){
     this.ruleName = ruleName;
     this.type = type;
     this.category = category;
     this.rule = rule;
-    this.conflictRules = conflictRules?conflictRules:[];
-    this.remove = remove;
+    this.conflicts = conflicts?conflicts:[];
     this.baseOn = baseOn;
 }
 
@@ -38,6 +37,23 @@ PrivilegeRule.prototype = {
             return commodity
         });
         set_commodities(commodities);
+    },
+    _solve_conflict:function(privilegeRules){
+        var self = this;
+        _.each(self.conflicts,function(conflict){
+            var conflictObj = conflict.split('-');
+            var conflictRule = _.where(privilegeRules,{ruleName:conflictObj[0]});
+            if(conflictRule && conflictObj[1] == 'other'){
+                privilegeRules.splice(_.indexOf(privilegeRules,conflictRule),1);
+                self._insert_by_baseOn(privilegeRules);
+            }
+            if(!conflictRule){
+                self._insert_by_baseOn(privilegeRules);
+            }
+        });
+    },
+    _insert_by_baseOn:function(privilegeRules){
+        
     },
     settle_accounts: function(subtotal){
         var self = this;
