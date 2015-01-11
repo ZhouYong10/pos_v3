@@ -59,11 +59,11 @@ PrivilegeRule.prototype = {
             var baseByRule = _.where(privilegeRules,{baseOn:self.ruleName});
             if(baseOnRule){
                 var baseOnRuleIndex = _.indexOf(privilegeRules,baseOnRule);
-                _insert_by_index(privilegeRules,baseOnRuleIndex);
+                _insert_by_index(privilegeRules,baseOnRuleIndex+1,self);
             }
             if(!baseOnRule && baseByRule){
                 var baseByRuleIndex = _.indexOf(privilegeRules,baseByRule);
-                _insert_by_index(privilegeRules,baseByRuleIndex-1);
+                _insert_by_index(privilegeRules,baseByRuleIndex,self);
             }
             if(!baseOnRule && !baseByRule){
                 privilegeRules.push(self);
@@ -85,3 +85,20 @@ PrivilegeRule.prototype = {
         }
     }
 };
+
+function _insert_by_index(array,index,obj){
+    var length = array.length;
+    var temp,temp1;
+    for(var x = 0; x < length; x++){
+        if(x == index){
+            temp = array[x];
+            array[x] = obj;
+        }
+        if(x > index){
+            temp1 = array[x];
+            array[x] = temp;
+            temp = temp1;
+        }
+    }
+    array[length] = temp;
+}
