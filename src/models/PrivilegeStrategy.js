@@ -10,7 +10,6 @@ function strategy_one(){
     branOnSale.relevance('可口可乐');
     itemOnSale.conflicts.push('brandOnSale-self');
     branOnSale.conflicts.push('itemOnSale-other');
-
 }
 
 function strategy_two(){
@@ -26,5 +25,5 @@ function strategy_four(){
 }
 
 function printInventory(input_barCodes){
-    
+
 }
