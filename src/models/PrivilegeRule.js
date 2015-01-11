@@ -29,10 +29,10 @@ PrivilegeRule.prototype = {
         var self = this;
         var commodities = _.map(get_commodities(),function(commodity){
             if(!commodityInfo){
-                commodity.privilegeRules.push(self);
+                self._solve_conflict(commodity.privilegeRules);
             }
             if(commodityInfo && commodity[key] == commodityInfo){
-                commodity.privilegeRules.push(self);
+                self._solve_conflict(commodity.privilegeRules);
             }
             return commodity
         });
@@ -40,17 +40,21 @@ PrivilegeRule.prototype = {
     },
     _solve_conflict:function(privilegeRules){
         var self = this;
-        _.each(self.conflicts,function(conflict){
-            var conflictObj = conflict.split('-');
-            var conflictRule = _.where(privilegeRules,{ruleName:conflictObj[0]});
-            if(conflictRule && conflictObj[1] == 'other'){
-                privilegeRules.splice(_.indexOf(privilegeRules,conflictRule),1);
-                self._insert_by_baseOn(privilegeRules);
-            }
-            if(!conflictRule){
-                self._insert_by_baseOn(privilegeRules);
-            }
-        });
+        if(self.conflicts.length > 0){
+            _.each(self.conflicts,function(conflict){
+                var conflictObj = conflict.split('-');
+                var conflictRule = _.where(privilegeRules,{ruleName:conflictObj[0]});
+                if(conflictRule && conflictObj[1] == 'other'){
+                    privilegeRules.splice(_.indexOf(privilegeRules,conflictRule),1);
+                    self._insert_by_baseOn(privilegeRules);
+                }
+                if(!conflictRule){
+                    self._insert_by_baseOn(privilegeRules);
+                }
+            });
+        }else{
+            self._insert_by_baseOn(privilegeRules);
+        }
     },
     _insert_by_baseOn:function(privilegeRules){
         var self = this;
