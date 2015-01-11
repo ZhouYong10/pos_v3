@@ -101,4 +101,10 @@ describe('PrivilegeRule',function(){
         });
     });
 
+    it('method _insert_by_index should insert object correct.',function(){
+        var array = [{name:'zhouyong',age:22},{name:'zhangsan',age:33}];
+        _insert_by_index(array,1,{name:'xiaoer',age:44});
+        expect(array).toEqual([{name:'zhouyong',age:22},{name:'xiaoer',age:44},{name:'zhangsan',age:33}])
+    });
+
 });
