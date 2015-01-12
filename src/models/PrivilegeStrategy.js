@@ -34,5 +34,8 @@ function strategy_four(){
 }
 
 function printInventory(input_barCodes){
-
+    var cart = new Cart(input_barCodes);
+    var commodities = cart.parse_bar_codes_to_commodities();
+    commodities = settle_accounts(commodities);
+    print_order(commodities);
 }
