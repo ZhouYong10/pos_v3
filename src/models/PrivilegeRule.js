@@ -8,7 +8,7 @@ function PrivilegeRule(ruleName,type,category,rule,conflicts,baseOn,baseOriginal
     this.rule = rule;
     this.conflicts = conflicts?conflicts:[];
     this.baseOn = baseOn;
-    this.baseOriginalPrice = baseOriginalPrice;
+    this.baseOriginalPrice = baseOriginalPrice?baseOriginalPrice:false;
     this.privilegedPrice = privilegedPrice;
     this.privilegePrice = privilegePrice;
 }
