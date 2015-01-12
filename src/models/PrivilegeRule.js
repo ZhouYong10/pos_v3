@@ -1,13 +1,16 @@
 /**
  * Created by zhouyong on 15-1-8.
  */
-function PrivilegeRule(ruleName,type,category,rule,conflicts,baseOn){
+function PrivilegeRule(ruleName,type,category,rule,conflicts,baseOn,baseOriginalPrice,discountPrice,privilegePrice){
     this.ruleName = ruleName;
     this.type = type;
     this.category = category;
     this.rule = rule;
     this.conflicts = conflicts?conflicts:[];
     this.baseOn = baseOn;
+    this.baseOriginalPrice = baseOriginalPrice;
+    this.discountPrice = discountPrice;
+    this.privilegePrice = privilegePrice;
 }
 
 PrivilegeRule.prototype = {
