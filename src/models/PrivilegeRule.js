@@ -1,7 +1,7 @@
 /**
  * Created by zhouyong on 15-1-8.
  */
-function PrivilegeRule(ruleName,type,category,rule,conflicts,baseOn,baseOriginalPrice,discountPrice,privilegePrice){
+function PrivilegeRule(ruleName,type,category,rule,conflicts,baseOn,baseOriginalPrice,privilegedPrice,privilegePrice){
     this.ruleName = ruleName;
     this.type = type;
     this.category = category;
@@ -9,7 +9,7 @@ function PrivilegeRule(ruleName,type,category,rule,conflicts,baseOn,baseOriginal
     this.conflicts = conflicts?conflicts:[];
     this.baseOn = baseOn;
     this.baseOriginalPrice = baseOriginalPrice;
-    this.discountPrice = discountPrice;
+    this.privilegedPrice = privilegedPrice;
     this.privilegePrice = privilegePrice;
 }
 
@@ -83,11 +83,13 @@ PrivilegeRule.prototype = {
         var self = this;
         switch(self.category){
             case 'discount':
-                return subtotal * (1-self.rule/10);
+                self.privilegedPrice = subtotal*(self.rule/10);
+                self.privilegePrice = subtotal * (1-self.rule/10);
                 break;
             case 'reduce':
                 var rule = self.rule.split('-');
-                return (Math.floor(subtotal/rule[0]))*rule[1];
+                self.privilegedPrice = subtotal-(Math.floor(subtotal/rule[0]))*rule[1];
+                self.privilegePrice = (Math.floor(subtotal/rule[0]))*rule[1];
                 break;
         }
     }
